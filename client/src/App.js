@@ -9,7 +9,9 @@ import Register from './components/register'
 function App() {
     const [user, setLoginUser] = useState({})
     useEffect(() => {
-        setLoginUser(JSON.parse(localStorage.getItem("MyUser")))
+        if (localStorage["MyUser"] !== "undefined") {
+            setLoginUser(JSON.parse(localStorage.getItem("MyUser")))
+        }
     }, [])
 
     const updateUser = (user) => {

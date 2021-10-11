@@ -43,7 +43,6 @@ app.post("/login", (req, res) => {
     ssnr()
 })
 
-
 app.post("/register", (req, res) => {
     const ssnr = async () => {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -70,9 +69,6 @@ app.post("/register", (req, res) => {
     }
     ssnr()
 })
-
-
-
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
