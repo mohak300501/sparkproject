@@ -20,7 +20,7 @@ const Login = ({ updateUser }) => {
 
     const login = () => {
         const{ email, password } = user
-        fetch("http://localhost:5000/login", {
+        fetch("https://sparkauthproject.herokuapp.com/login", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

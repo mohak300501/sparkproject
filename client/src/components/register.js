@@ -23,7 +23,7 @@ const Register = () => {
     const register = () => {
         const { name, email, password, reEnterPassword } = user
         if (password === reEnterPassword) {
-            fetch("http://localhost:5000/register", {
+            fetch("https://sparkauthproject.herokuapp.com/register", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
