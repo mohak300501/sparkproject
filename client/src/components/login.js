@@ -40,7 +40,7 @@ const Login = ({ updateUser }) => {
     return (
         <div className="login">
             <h1>Login</h1>
-            <form>
+            <form action="" method="">
                 <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Your Email" required />
                 <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your Password" required />
                 <input className="button" type="submit" value="Login" onClick={login} />

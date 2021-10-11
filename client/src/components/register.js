@@ -47,7 +47,7 @@ const Register = () => {
         <div className="register">
             {console.log("User", user)}
             <h1>Register</h1>
-            <form>
+            <form action="" method="">
                 <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={handleChange} required />
                 <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={handleChange} required />
                 <input type="password" name="password" value={user.password} placeholder="Set Password" onChange={handleChange} required />
