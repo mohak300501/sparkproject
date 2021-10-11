@@ -22,23 +22,25 @@ const Register = () => {
 
     const register = () => {
         const { name, email, password, reEnterPassword } = user
-        if (password === reEnterPassword) {
-            fetch("https://sparkauthproject.herokuapp.com/register", {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json;charset=UTF-8'
-                },
-                body: JSON.stringify({ name, email, password })
-            })
-                .then(res => {
-                    res.json().then(data => {
-                        alert(data.message)
-                        history.push("/login")
-                    })
+        if (name && email && password && reEnterPassword) {
+            if (password === reEnterPassword) {
+                fetch("https://sparkauthproject.herokuapp.com/register", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json;charset=UTF-8'
+                    },
+                    body: JSON.stringify({ name, email, password })
                 })
-        } else {
-            alert("Passwords do not match.")
+                    .then(res => {
+                        res.json().then(data => {
+                            alert(data.message)
+                            history.push("/login")
+                        })
+                    })
+            } else {
+                alert("Passwords do not match.")
+            }
         }
 
     }

@@ -20,14 +20,15 @@ const Login = ({ updateUser }) => {
 
     const login = () => {
         const { email, password } = user
-        fetch("https://sparkauthproject.herokuapp.com/login", {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json;charset=UTF-8'
-            },
-            body: JSON.stringify({ email, password })
-        })
+        if (email && password) {
+            fetch("https://sparkauthproject.herokuapp.com/login", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify({ email, password })
+            })
             .then(res => {
                 res.json().then(data => {
                     alert(data.message)
@@ -35,6 +36,7 @@ const Login = ({ updateUser }) => {
                     history.push("/")
                 })
             })
+        }
     }
 
     return (
