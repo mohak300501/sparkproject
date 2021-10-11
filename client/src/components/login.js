@@ -19,7 +19,7 @@ const Login = ({ updateUser }) => {
     }
 
     const login = () => {
-        const{ email, password } = user
+        const { email, password } = user
         fetch("https://sparkauthproject.herokuapp.com/login", {
             method: 'POST',
             headers: {
@@ -40,8 +40,10 @@ const Login = ({ updateUser }) => {
     return (
         <div className="login">
             <h1>Login</h1>
-            <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Your Email" required />
-            <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your Password" required />
+            <form>
+                <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Your Email" required />
+                <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your Password" required />
+            </form>
             <div className="button" onClick={login}>Login</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/register")}>Register</div>
