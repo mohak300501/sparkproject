@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+}
+
+.button {
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: fit-content;
+    margin: 1rem auto;
+}
