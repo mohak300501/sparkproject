@@ -20,8 +20,11 @@ const Login = ({ updateUser }) => {
 
     const login = () => {
         const { email, password } = user
+        const host_addr = (process.env.HOST_ADDR) ?
+            process.env.HOST_ADDR + "login" : "http://localhost:5000/login"
+
         if (email && password) {
-            fetch("https://sparkauthproject.herokuapp.com/login", {
+            fetch(host_addr, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -29,24 +32,24 @@ const Login = ({ updateUser }) => {
                 },
                 body: JSON.stringify({ email, password })
             })
-            .then(res => {
-                res.json().then(data => {
-                    alert(data.message)
-                    updateUser(data.user)
-                    history.push("/")
+                .then(res => {
+                    res.json().then(data => {
+                        alert(data.message)
+                        updateUser(data.user)
+                        history.push("/")
+                    })
                 })
-            })
+        } else {
+            alert("Please enter both your email and password.")
         }
     }
 
     return (
         <div className="login">
             <h1>Login</h1>
-            <form action="" method="">
-                <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Your Email" required />
-                <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your Password" required />
-                <input className="button" type="submit" value="Login" onClick={login} />
-            </form>
+            <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Your Email" />
+            <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your Password" />
+            <div className="button" onClick={login}>Login</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/register")}>Register</div>
         </div>

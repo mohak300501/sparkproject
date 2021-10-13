@@ -54,14 +54,14 @@ app.post("/register", (req, res) => {
         const user_exist = await Users.find({ email: email }).count()
         const user = await Users.findOne({ email: email })
         if (user_exist > 0) {
-            await res.send({ message: "Email already in use by another user. Please try another email." })
+            await res.send({ message: "Email already in use by another user. Please try another email.", err: true })
         } else {
             await Users.insertOne({
                 name,
                 email,
                 password
             }).then(
-                await res.send({ message: "Successfully registered! Proceed to login." })
+                await res.send({ message: "Successfully registered! Proceed to login.", err: false })
             ).catch(
                 err => { res.send(err) })
         }
@@ -74,7 +74,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-const port = process.env.PORT
+const port = process.env.SERVER_PORT
 app.listen(port, () => {
     console.log(`Listening on port ${port}!`)
 })

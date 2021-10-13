@@ -22,9 +22,13 @@ const Register = () => {
 
     const register = () => {
         const { name, email, password, reEnterPassword } = user
+        const host_addr = (process.env.HOST_ADDR) ?
+            process.env.HOST_ADDR + "register" : "http://localhost:5000/register"
+        console.log(host_addr)
+
         if (name && email && password && reEnterPassword) {
             if (password === reEnterPassword) {
-                fetch("https://sparkauthproject.herokuapp.com/register", {
+                fetch(host_addr, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -35,12 +39,14 @@ const Register = () => {
                     .then(res => {
                         res.json().then(data => {
                             alert(data.message)
-                            history.push("/login")
+                            if (!data.err ) history.push("/login")
                         })
                     })
             } else {
                 alert("Passwords do not match.")
             }
+        } else {
+            alert("Please fill all the fields.")
         }
 
     }
@@ -49,13 +55,11 @@ const Register = () => {
         <div className="register">
             {console.log("User", user)}
             <h1>Register</h1>
-            <form action="" method="">
-                <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={handleChange} required />
-                <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={handleChange} required />
-                <input type="password" name="password" value={user.password} placeholder="Set Password" onChange={handleChange} required />
-                <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={handleChange} required />
-                <input className="button" type="submit" value="Register" onClick={register} />
-            </form>
+            <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={handleChange} />
+            <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={handleChange} />
+            <input type="password" name="password" value={user.password} placeholder="Set Password" onChange={handleChange} />
+            <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={handleChange} />
+            <div className="button" onClick={register} >Register</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/login")}>Login</div>
         </div>
