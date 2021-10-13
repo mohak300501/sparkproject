@@ -20,11 +20,8 @@ const Login = ({ updateUser }) => {
 
     const login = () => {
         const { email, password } = user
-        const host_addr = (process.env.HOST_ADDR) ?
-            process.env.HOST_ADDR + "login" : "http://localhost:5000/login"
-
         if (email && password) {
-            fetch(host_addr, {
+            fetch("/login", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

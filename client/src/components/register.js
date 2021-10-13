@@ -22,13 +22,9 @@ const Register = () => {
 
     const register = () => {
         const { name, email, password, reEnterPassword } = user
-        const host_addr = (process.env.HOST_ADDR) ?
-            process.env.HOST_ADDR + "register" : "http://localhost:5000/register"
-        console.log(host_addr)
-
         if (name && email && password && reEnterPassword) {
             if (password === reEnterPassword) {
-                fetch(host_addr, {
+                fetch("/register", {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
