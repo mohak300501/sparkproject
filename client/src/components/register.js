@@ -35,7 +35,7 @@ const Register = () => {
                     .then(res => {
                         res.json().then(data => {
                             alert(data.message)
-                            if (!data.err ) history.push("/login")
+                            if (!data.err) history.push("/login")
                         })
                     })
             } else {
@@ -48,16 +48,53 @@ const Register = () => {
     }
 
     return (
-        <div className="register">
-            {console.log("User", user)}
-            <h1>Register</h1>
-            <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={handleChange} />
-            <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={handleChange} />
-            <input type="password" name="password" value={user.password} placeholder="Set Password" onChange={handleChange} />
-            <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={handleChange} />
-            <div className="button" onClick={register} >Register</div>
-            <div>or</div>
-            <div className="button" onClick={() => history.push("/login")}>Login</div>
+        <div className="flex full-height">
+            <div className="flex-30 bg-violet color-white">
+                <h1>Login instead</h1><br/>
+                <p>If you have already registered, please login.</p><br/>
+                <div className="button bg-white color-violet" onClick={() => history.push("/login")}>Login</div>
+            </div>
+            {/* {console.log("User", user)} */}
+            <div className="flex-70 bg-white color-violet">
+                <h1>Register</h1>
+                <div className="ai-center flex flex-col row-gap-07">
+                    <input type="text" name="name" value={user.name} placeholder="Enter your Name" onChange={handleChange} />
+                    <input type="text" name="email" value={user.email} placeholder="Enter your Email" onChange={handleChange} />
+                    <input type="number" name="phone" value={user.phone} placeholder="Enter your Mobile number" onChange={handleChange} />
+                    <select>
+                        <option default>Choose gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <select>
+                        <option default>Choose institute</option>
+                        <option>IITs/IISc</option>
+                        <option>NITs/IISERs/NISER/IIEST/UM-DAECBS</option>
+                        <option>Other institute</option>
+                    </select>
+                    <select>
+                        <option default>Choose department</option>
+                        <option>Architecture</option>
+                        <option>Biotechnology</option>
+                        <option>Chemistry</option>
+                        <option>Computer Science</option>
+                        <option>Electrical</option>
+                        <option>Mechanical &amp; Industrial</option>
+                        <option>Mathematics</option>
+                        <option>Physics</option>
+                    </select>
+                    <select>
+                        <option default>Choose year of study</option>
+                        <option>IInd year</option>
+                        <option>IIIrd year</option>
+                        <option>IV year (only for 5 year courses)</option>
+                    </select>
+                    <input type="password" name="password" value={user.password} placeholder="Set Password" onChange={handleChange} />
+                    <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={handleChange} />
+                </div><br/>
+                <div className="button bg-violet color-white" onClick={register} >Register</div>
+            </div>
         </div>
     )
 }

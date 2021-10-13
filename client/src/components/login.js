@@ -42,13 +42,25 @@ const Login = ({ updateUser }) => {
     }
 
     return (
-        <div className="login">
-            <h1>Login</h1>
-            <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Your Email" />
-            <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your Password" />
-            <div className="button" onClick={login}>Login</div>
-            <div>or</div>
-            <div className="button" onClick={() => history.push("/register")}>Register</div>
+        <div className="flex full-height">
+            <div className="flex-70">
+                <h1 className="color-violet">Login</h1><br/>
+                <p className="left ma w-40">
+                    Dear SPARK team, here are my credentials for trial login as below -<br/>
+                    Email - mohak_k@ph.iitr.ac.in<br/>
+                    Password - mohakmonger<br/>
+                </p><br/>
+                <div className="ai-center flex flex-col row-gap-07">
+                    <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" />
+                    <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter your Password" />
+                </div><br/>
+                <div className="button bg-violet color-white" onClick={login}>Login</div>
+            </div><br/>
+            <div className="flex-30 bg-violet color-white">
+                <h1>Hello students!</h1><br/>
+                <p>If you have not registered yet, please do so.</p><br/>
+                <div className="button bg-white color-violet" onClick={() => history.push("/register")}>Register</div>
+            </div>
         </div>
     )
 }

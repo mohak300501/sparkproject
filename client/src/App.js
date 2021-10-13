@@ -25,7 +25,7 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         {
-                            user && user._id ? <Home updateUser={updateUser} /> : <Login updateUser={updateUser} />
+                            user && user._id ? <Home updateUser={updateUser} user={user} /> : <Login updateUser={updateUser} />
                         }
                     </Route>
                     <Route path="/login">

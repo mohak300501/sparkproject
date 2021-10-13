@@ -2,11 +2,34 @@ body {
     text-align: center;
 }
 
+input, select {
+    font-size: 1.3rem;
+    width: 40rem;
+    padding: 0.7rem;
+    border-radius: 0.7rem;
+}
+
+.ai-center {align-items: center;}
+.bg-violet {background-color: #ab70ac;}
+.bg-white {background-color: white;}
 .button {
     cursor: pointer;
-    border: 2px solid black;
+    box-shadow: -2px 2px 4px black;
+    font-weight: bold;
     border-radius: 1rem;
-    padding: 0.5rem;
+    padding: 1rem;
     width: fit-content;
     margin: 1rem auto;
 }
+.color-violet {color: #ab70ac;}
+.color-white {color: white;}
+.flex {display: flex;}
+.flex-30 {flex-basis: 30%;}
+.flex-70 {flex-basis: 70%;}
+.flex-col {flex-direction: column;}
+.full-height {height: 97vh;}
+.left {text-align: left;}
+.ma {margin: auto;}
+.row-gap-07 {row-gap: 0.7rem;}
+.w-40 {width: 40%;}
+.w-60 {width: 60%;}
