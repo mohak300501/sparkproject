@@ -46,7 +46,7 @@ const Login = ({ updateUser }) => {
             <div className="flex-70">
                 <h1 className="color-violet">Login</h1><br/>
                 <p className="left ma w-40">
-                    Dear SPARK team, here are my credentials for trial login as below -<br/>
+                    Dear SPARK team, here are test credentials for trial login as below -<br/>
                     Email - mohak_k@ph.iitr.ac.in<br/>
                     Password - mohakmonger<br/>
                 </p><br/>
