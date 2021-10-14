@@ -14,8 +14,8 @@ const Home = ({ updateUser, user }) => {
                 <i>Institute</i>: {user.inst}<br/>
                 <i>Department</i>: {user.dept}<br/>
                 <i>Year</i>: {user.year}<br/>
-                <i>Password</i>: {user.password}<br/>
-            </div>
+                <i>Password</i>: {user.password}
+            </div><br/>
             <p className="left ma w-65">
                 <b>Dear SPARK team,</b><br />
                 I have deployed this app to Heroku - <a href="https://sparkauthproject.herokuapp.com/">https://sparkauthproject.herokuapp.com/</a>.<br />
