@@ -48,7 +48,7 @@ const Forgot = () => {
                         Enter your email and we'll send you a 6-digit OTP to help you reset your password.<br />
                     </p>
                     <div className="ai-center flex">
-                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" />
+                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" style={{width: "65%"}} />
                     </div><br />
                     <div className="button bg-violet color-white" onClick={forgot}>Send OTP</div><br />
                     <div className="ma">
