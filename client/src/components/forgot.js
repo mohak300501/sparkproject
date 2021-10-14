@@ -33,6 +33,7 @@ const Forgot = () => {
                         alert(data.message)
                         if (!data.err) {
                             console.log(data.otp)
+                            localStorage.setItem('email', email)
                             localStorage.setItem("otp", data.otp)
                             history.push("/reset")
                         }

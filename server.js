@@ -50,7 +50,7 @@ app.post("/register", (req, res) => {
         const db = client.db("login_data")
         const Users = db.collection("login_users")
 
-        const { name, email, password } = req.body
+        const { name, email, phone, gender, inst, dept, year, password } = req.body
 
         const user_exist = await Users.find({ email: email }).count()
         const user = await Users.findOne({ email: email })
@@ -58,9 +58,7 @@ app.post("/register", (req, res) => {
             await res.send({ message: "Email already in use by another user. Please try another email.", err: true })
         } else {
             await Users.insertOne({
-                name,
-                email,
-                password
+                name, email, phone, gender, inst, dept, year, password
             }).then(
                 await res.send({ message: "Successfully registered! Proceed to login.", err: false })
             ).catch(
@@ -112,7 +110,22 @@ app.post("/forgot", (req, res) => {
 })
 
 app.post("/reset", (req,res) =>{
-    
+    const ssnr = async () => {
+        const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+        const db = client.db("login_data")
+        const Users = db.collection("login_users")
+
+        const { email, otp, password } = req.body
+
+        await Users.updateOne({email: email}, {$set: {password:password}}
+            ).then(
+                await res.send({ message: "OTP sent! Please check your inbox.", err: false, otp: otp })
+            ).catch(
+                err => { res.send(err) })
+        
+        client.close()
+    }
+    ssnr()
 })
 
 app.get("*", (req, res) => {
