@@ -119,7 +119,7 @@ app.post("/reset", (req,res) =>{
 
         await Users.updateOne({email: email}, {$set: {password:password}}
             ).then(
-                await res.send({ message: "OTP sent! Please check your inbox.", err: false, otp: otp })
+                await res.send({ message: "Password reset successfully! Please proceed to login with new password." })
             ).catch(
                 err => { res.send(err) })
         

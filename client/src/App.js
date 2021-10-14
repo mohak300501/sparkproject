@@ -25,17 +25,21 @@ function App() {
         <HashRouter>
             <div className="App">
                 <Switch>
-                    <Route exact path="/">
+                    <Route path="/" exact>
                         {
                             user && user._id ? <Home updateUser={updateUser} user={user} /> : <Login updateUser={updateUser} />
                         }
                     </Route>
-                    <Route path="/login">
+                    <Route path="/login" exact>
                         <Login updateUser={updateUser} />
                     </Route>
                     <Route path="/register" component={Register} exact />
                     <Route path="/forgot" component={Forgot} exact />
-                    <Route path="/reset" component={Reset} exact />
+                    <Route path="/reset" exact>
+                        {
+                            localStorage.getItem('otp') && localStorage.getItem('otp') ? <Reset/> : <Login updateUser={updateUser} />
+                        }
+                    </Route>
                 </Switch>
             </div>
         </HashRouter>
