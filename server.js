@@ -79,18 +79,18 @@ app.post("/forgot", (req, res) => {
 
         const { email } = req.body
         const otp = parseInt(Math.random() * 1000000)
-        localStorage.setItem("otp", otp)
+        window.localStorage.setItem("otp", otp)
 
         const transporter = await nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'mohak_k@ph.iitr.ac.in',
-                pass: 'wlmoigcspagimifj'
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS
             }
         })
 
         const mailOptions = {
-            from: 'mohak_k@ph.iitr.ac.in',
+            from: process.env.MAIL_USER,
             to: email,
             subject: '[SPARK IITR] OTP verification for password reset',
             html: 'Your OTP is<br/><br/><b>' + otp +
