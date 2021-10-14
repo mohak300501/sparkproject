@@ -35,7 +35,7 @@ const Forgot = () => {
                     })
                 })
         } else {
-            alert("Please enter both your email and password.")
+            alert("Please enter your email.")
         }
     }
 

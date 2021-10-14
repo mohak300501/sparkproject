@@ -8,6 +8,7 @@ const Register = () => {
     const [user, setUser] = useState({
         name: "",
         email: "",
+        phone: "",
         gender: "",
         inst: "",
         dept: "",
@@ -25,8 +26,8 @@ const Register = () => {
     }
 
     const register = () => {
-        const { name, email, password, confirmPassword } = user
-        if (name && email && password && confirmPassword) {
+        const { name, email, phone, gender, inst, dept, year, password, confirmPassword } = user
+        if (name && email && phone && gender && inst && dept && year && password && confirmPassword) {
             if (password === confirmPassword) {
                 fetch("/register", {
                     method: 'POST',
@@ -34,7 +35,7 @@ const Register = () => {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json;charset=UTF-8'
                     },
-                    body: JSON.stringify({ name, email, password })
+                    body: JSON.stringify({ name, email, phone, gender, inst, dept, year, password })
                 })
                     .then(res => {
                         res.json().then(data => {

@@ -71,7 +71,7 @@ app.post("/register", (req, res) => {
     ssnr()
 })
 
-app.get("/forgot", (req, res) => {
+app.post("/forgot", (req, res) => {
     const ssnr = async () => {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
         const db = client.db("login_data")
@@ -81,11 +81,11 @@ app.get("/forgot", (req, res) => {
         const otp = parseInt(Math.random() * 1000000)
         localStorage.setItem("otp", otp)
 
-        const transporter = nodemailer.createTransport({
+        const transporter = await nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: 'mohak_k@ph.iitr.ac.in',
-                pass: 'yourpassword'
+                pass: 'wlmoigcspagimifj'
             }
         })
 
@@ -112,7 +112,7 @@ app.get("/forgot", (req, res) => {
     ssnr()
 })
 
-app.get("/reset", (req,res) =>{
+app.post("/reset", (req,res) =>{
     
 })
 
