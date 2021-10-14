@@ -3,7 +3,7 @@ body {
 }
 
 input, select {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     width: 40rem;
     padding: 0.7rem;
     border-radius: 0.7rem;
@@ -12,6 +12,7 @@ input, select {
 .ai-center {align-items: center;}
 .bg-violet {background-color: #ab70ac;}
 .bg-white {background-color: white;}
+.br {border-radius: 1rem;}
 .button {
     cursor: pointer;
     box-shadow: -2px 2px 4px black;
@@ -23,13 +24,18 @@ input, select {
 }
 .color-violet {color: #ab70ac;}
 .color-white {color: white;}
+.cur-p {cursor: pointer;}
 .flex {display: flex;}
 .flex-30 {flex-basis: 30%;}
 .flex-70 {flex-basis: 70%;}
 .flex-col {flex-direction: column;}
 .full-height {height: 97vh;}
+.jc-center {justify-content: center;}
 .left {text-align: left;}
 .ma {margin: auto;}
+.pad-2 {padding: 2rem;}
 .row-gap-07 {row-gap: 0.7rem;}
+.underline {text-decoration: underline;}
 .w-40 {width: 40%;}
 .w-60 {width: 60%;}
+.w-min {width: min-content;}

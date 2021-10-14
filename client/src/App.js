@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import Home from './components/home'
 import Login from './components/login'
 import Register from './components/register'
+import Forgot from './components/forgot'
+import Reset from './components/reset'
 
 function App() {
     const [user, setLoginUser] = useState({})
@@ -32,6 +34,8 @@ function App() {
                         <Login updateUser={updateUser} />
                     </Route>
                     <Route path="/register" component={Register} exact />
+                    <Route path="/forgot" component={Forgot} exact />
+                    <Route path="/reset" component={Reset} exact />
                 </Switch>
             </div>
         </HashRouter>

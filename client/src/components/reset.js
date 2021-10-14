@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 
-const Login = ({ updateUser }) => {
+const Reset = () => {
 
     const history = useHistory()
 
@@ -18,10 +18,10 @@ const Login = ({ updateUser }) => {
         })
     }
 
-    const login = () => {
+    const reset = () => {
         const { email, password } = user
         if (email && password) {
-            fetch("/login", {
+            fetch("/reset", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -32,7 +32,6 @@ const Login = ({ updateUser }) => {
                 .then(res => {
                     res.json().then(data => {
                         alert(data.message)
-                        updateUser(data.user)
                         history.push("/")
                     })
                 })
@@ -44,9 +43,9 @@ const Login = ({ updateUser }) => {
     return (
         <div className="flex full-height">
             <div className="flex-70">
-                <h1 className="color-violet">Login to your account</h1><br/>
+                <h1 className="color-violet">reset to your account</h1><br/>
                 <p className="left ma w-40">
-                    Dear SPARK team, here are test credentials for trial login as below -<br/>
+                    Dear SPARK team, here are test credentials for trial reset as below -<br/>
                     Email - mohak_k@ph.iitr.ac.in<br/>
                     Password - mohakmonger<br/>
                 </p><br/>
@@ -54,8 +53,8 @@ const Login = ({ updateUser }) => {
                     <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" />
                     <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter your Password" />
                 </div><br/>
-                <div className="button bg-violet color-white" onClick={login}>Login</div><br/>
-                <i className="ma cur-p underline" onClick={() => history.push("/forgot")}>Forgot password?</i>
+                <div className="button bg-violet color-white" onClick={reset}>reset</div><br/>
+                <p className="ma" onClick={() => history.push("/forgot")}>Forgot password?</p>
             </div><br/>
             <div className="flex-30 bg-violet color-white">
                 <h1>Hello students!</h1><br/>
@@ -67,4 +66,4 @@ const Login = ({ updateUser }) => {
 }
 
 
-export default Login
+export default Reset

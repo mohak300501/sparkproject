@@ -8,8 +8,12 @@ const Register = () => {
     const [user, setUser] = useState({
         name: "",
         email: "",
+        gender: "",
+        inst: "",
+        dept: "",
+        year: "",
         password: "",
-        reEnterPassword: ""
+        confirmPassword: ""
     })
 
     const handleChange = e => {
@@ -21,9 +25,9 @@ const Register = () => {
     }
 
     const register = () => {
-        const { name, email, password, reEnterPassword } = user
-        if (name && email && password && reEnterPassword) {
-            if (password === reEnterPassword) {
+        const { name, email, password, confirmPassword } = user
+        if (name && email && password && confirmPassword) {
+            if (password === confirmPassword) {
                 fetch("/register", {
                     method: 'POST',
                     headers: {
@@ -50,8 +54,8 @@ const Register = () => {
     return (
         <div className="flex full-height">
             <div className="flex-30 bg-violet color-white">
-                <h1>Login instead</h1><br/>
-                <p>If you have already registered, please login.</p><br/>
+                <h1>Login instead</h1><br />
+                <p>If you have already registered, please login.</p><br />
                 <div className="button bg-white color-violet" onClick={() => history.push("/login")}>Login</div>
             </div>
             {/* {console.log("User", user)} */}
@@ -61,38 +65,38 @@ const Register = () => {
                     <input type="text" name="name" value={user.name} placeholder="Enter your Name" onChange={handleChange} />
                     <input type="text" name="email" value={user.email} placeholder="Enter your Email" onChange={handleChange} />
                     <input type="number" name="phone" value={user.phone} placeholder="Enter your Mobile number" onChange={handleChange} />
-                    <select>
-                        <option default>Choose gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
+                    <select name="gender" value={user.gender}>
+                        <option default selected disable>Choose gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
-                    <select>
-                        <option default>Choose institute</option>
-                        <option>IITs/IISc</option>
-                        <option>NITs/IISERs/NISER/IIEST/UM-DAECBS</option>
-                        <option>Other institute</option>
+                    <select name="inst" value={user.inst}>
+                        <option default selected disable>Choose institute</option>
+                        <option value="IITs/IISc">IITs/IISc</option>
+                        <option value="NITs/IISERs/NISER/IIEST/UM-DAECBS">NITs/IISERs/NISER/IIEST/UM-DAECBS</option>
+                        <option value="Other institute">Other institute</option>
                     </select>
-                    <select>
-                        <option default>Choose department</option>
-                        <option>Architecture</option>
-                        <option>Biotechnology</option>
-                        <option>Chemistry</option>
-                        <option>Computer Science</option>
-                        <option>Electrical</option>
-                        <option>Mechanical &amp; Industrial</option>
-                        <option>Mathematics</option>
-                        <option>Physics</option>
+                    <select name="dept" value={user.dept}>
+                        <option default selected disable>Choose department</option>
+                        <option value="Architecture">Architecture</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Mechanical &amp; Industrial">Mechanical &amp; Industrial</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
                     </select>
-                    <select>
-                        <option default>Choose year of study</option>
-                        <option>IInd year</option>
-                        <option>IIIrd year</option>
-                        <option>IV year (only for 5 year courses)</option>
+                    <select name="year" value={user.year}>
+                        <option default selected disable>Choose year of study</option>
+                        <option value="IInd year">IInd year</option>
+                        <option value="IIIrd year">IIIrd year</option>
+                        <option value="IV year (only for 5 year courses)">IV year (only for 5 year courses)</option>
                     </select>
                     <input type="password" name="password" value={user.password} placeholder="Set Password" onChange={handleChange} />
-                    <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={handleChange} />
-                </div><br/>
+                    <input type="password" name="confirmPassword" value={user.confirmPassword} placeholder="Confirm Password" onChange={handleChange} />
+                </div><br />
                 <div className="button bg-violet color-white" onClick={register} >Register</div>
             </div>
         </div>
