@@ -67,19 +67,19 @@ const Register = () => {
                     <input type="text" name="email" value={user.email} placeholder="Enter your Email" onChange={handleChange} />
                     <input type="number" name="phone" value={user.phone} placeholder="Enter your Mobile number" onChange={handleChange} />
                     <select name="gender" value={user.gender}>
-                        <option selected disabled value="DEFAULT">Choose gender</option>
+                        <option default>Choose gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
                     </select>
                     <select name="inst" value={user.inst}>
-                        <option selected disabled value="DEFAULT">Choose institute</option>
+                        <option default>Choose institute</option>
                         <option value="IITs/IISc">IITs/IISc</option>
                         <option value="NITs/IISERs/NISER/IIEST/UM-DAECBS">NITs/IISERs/NISER/IIEST/UM-DAECBS</option>
                         <option value="Other institute">Other institute</option>
                     </select>
                     <select name="dept" value={user.dept}>
-                        <option selected disabled value="DEFAULT">Choose department</option>
+                        <option default>Choose department</option>
                         <option value="Architecture">Architecture</option>
                         <option value="Biotechnology">Biotechnology</option>
                         <option value="Chemistry">Chemistry</option>
@@ -90,7 +90,7 @@ const Register = () => {
                         <option value="Physics">Physics</option>
                     </select>
                     <select name="year" value={user.year}>
-                        <option selected disabled value="DEFAULT">Choose year of study</option>
+                        <option default>Choose year of study</option>
                         <option value="IInd year">IInd year</option>
                         <option value="IIIrd year">IIIrd year</option>
                         <option value="IV year (only for 5 year courses)">IV year (only for 5 year courses)</option>
