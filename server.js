@@ -79,7 +79,6 @@ app.post("/forgot", (req, res) => {
 
         const { email } = req.body
         const otp = parseInt(Math.random() * 1000000)
-        window.localStorage.setItem("otp", otp)
 
         const transporter = await nodemailer.createTransport({
             service: 'gmail',
@@ -101,7 +100,7 @@ app.post("/forgot", (req, res) => {
         if (user_exist > 0) {
             await transporter.sendMail(mailOptions
             ).then(
-                await res.send({ message: "OTP sent! Please check your inbox.", err: false })
+                await res.send({ message: "OTP sent! Please check your inbox.", err: false, otp: otp })
             ).catch(
                 err => { res.send(err) })
         } else {

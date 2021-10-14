@@ -31,7 +31,11 @@ const Forgot = () => {
                 .then(res => {
                     res.json().then(data => {
                         alert(data.message)
-                        if (!data.err) history.push("/reset")
+                        if (!data.err) {
+                            console.log(data.otp)
+                            localStorage.setItem("otp", data.otp)
+                            history.push("/reset")
+                        }
                     })
                 })
         } else {
@@ -48,14 +52,14 @@ const Forgot = () => {
                         Enter your email and we'll send you a 6-digit OTP to help you reset your password.<br />
                     </p>
                     <div className="ai-center flex">
-                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" style={{width: "100%"}} />
+                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" style={{ width: "100%" }} />
                     </div><br />
                     <div className="button bg-violet color-white" onClick={forgot}>Send OTP</div><br />
                     <div className="ma">
                         <i className="ma cur-p underline" onClick={() => history.push("/login")}>Login</i>
                         &nbsp;or&nbsp;
                         <i className="ma cur-p underline" onClick={() => history.push("/register")}>Register</i>
-                    </div><br/><br/>
+                    </div><br /><br />
                 </div>
             </div>
         </div>
