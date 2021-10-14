@@ -33,9 +33,12 @@ input, select {
 .jc-center {justify-content: center;}
 .left {text-align: left;}
 .ma {margin: auto;}
+.m-2-a {margin: 2rem auto;}
 .pad-2 {padding: 2rem;}
 .row-gap-07 {row-gap: 0.7rem;}
 .underline {text-decoration: underline;}
+.w-30 {width: 30%;}
 .w-40 {width: 40%;}
-.w-60 {width: 60%;}
+.w-65 {width: 65%;}
+.w-80 {width: 80%;}
 .w-min {width: min-content;}

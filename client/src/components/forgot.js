@@ -42,13 +42,13 @@ const Forgot = () => {
     return (
         <div className="flex full-height bg-violet flex-col jc-center">
             <div className="br ma w-40 bg-white flex ai-center flex-col">
-                <div className="ma w-min">
+                <div className="ma w-80">
                     <h1 className="color-violet">Forgot your password?</h1>
                     <p className="left">
                         Enter your email and we'll send you a 6-digit OTP to help you reset your password.<br />
                     </p>
                     <div className="ai-center flex">
-                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" style={{width: "65%"}} />
+                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email" style={{width: "100%"}} />
                     </div><br />
                     <div className="button bg-violet color-white" onClick={forgot}>Send OTP</div><br />
                     <div className="ma">

@@ -5,18 +5,18 @@ const Home = ({ updateUser, user }) => {
         <div className="home">
             <h1>Welcome, {user.name}!</h1><br />
             <div className="button" onClick={() => updateUser({})} >Logout</div><br />
-            <div className="left ma w-60">
+            <div className="left ma w-65">
                 <b>User Details</b><br/>
                 Name: {user.name}<br/>
                 Email: {user.email}<br/>
                 Password: {user.password}
             </div><br />
-            <p className="left ma w-60">
+            <p className="left ma w-65">
                 <b>Dear SPARK team,</b><br />
                 I have deployed this app to Heroku - <a href="https://sparkauthproject.herokuapp.com/">https://sparkauthproject.herokuapp.com/</a>.<br />
                 The code is stored and maintained at GitHub - <a href="https://github.com/mohak300501/sparkproject">https://github.com/mohak300501/sparkproject</a>.
             </p><br />
-            <p className="left ma w-60">
+            <p className="left ma w-65">
                 <b>Other Projects</b><br />
                 I have contributed to the following projects.
                 <ul>
