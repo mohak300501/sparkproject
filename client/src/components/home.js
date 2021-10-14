@@ -7,10 +7,15 @@ const Home = ({ updateUser, user }) => {
             <div className="button" onClick={() => updateUser({})} >Logout</div><br />
             <div className="left ma w-65">
                 <b>User Details</b><br/>
-                Name: {user.name}<br/>
-                Email: {user.email}<br/>
-                Password: {user.password}
-            </div><br />
+                <i>Name</i>: {user.name}<br/>
+                <i>Email</i>: {user.email}<br/>
+                <i>Phone</i>: {user.phone}<br/>
+                <i>Gender</i>: {user.gender}<br/>
+                <i>Institute</i>: {user.inst}<br/>
+                <i>Department</i>: {user.dept}<br/>
+                <i>Year</i>: {user.year}<br/>
+                <i>Password</i>: {user.password}<br/>
+            </div>
             <p className="left ma w-65">
                 <b>Dear SPARK team,</b><br />
                 I have deployed this app to Heroku - <a href="https://sparkauthproject.herokuapp.com/">https://sparkauthproject.herokuapp.com/</a>.<br />
