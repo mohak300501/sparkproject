@@ -19,7 +19,22 @@ const Home = ({ updateUser, user }) => {
             <p className="left ma w-65">
                 <b>Dear SPARK team,</b><br />
                 I have deployed this app to Heroku - <a href="https://sparkauthproject.herokuapp.com/">https://sparkauthproject.herokuapp.com/</a>.<br />
-                The code is stored and maintained at GitHub - <a href="https://github.com/mohak300501/sparkproject">https://github.com/mohak300501/sparkproject</a>.
+                The code is stored and maintained at GitHub - <a href="https://github.com/mohak300501/sparkproject">https://github.com/mohak300501/sparkproject</a>.<br /><br />
+                <i>Features present</i>
+                <ul>
+                    <li>Login</li>
+                    <li>Register</li>
+                    <li>Forgot & Reset Password with OTP</li>
+                    <li>Home page not accessible if not logged in</li>
+                    <li>Reset page not accessible if OTP not sent from Forgot page</li>
+                </ul><br />
+                <i>Features absent</i>
+                <ul>
+                    <li>Upload profile image</li>
+                    <li>Navbar/footer</li>
+                    <li>Mobile-friendly</li>
+                    <li>Animations/transitions</li>
+                </ul>
             </p><br />
             <p className="left ma w-65">
                 <b>Other Projects</b><br />
